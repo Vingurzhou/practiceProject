@@ -1,0 +1,2 @@
+*.py linguist-language=Sql
+*.go linguist-language=Sql
