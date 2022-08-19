@@ -12,6 +12,14 @@ type ListNode struct {
 	Next *ListNode
 }
 
+func reverse(s string) string {
+	runes := []rune(s)
+	fmt.Println(runes)
+	for front, back := 0, len(s)-1; front < back; front, back = front+1, back-1 {
+		runes[front], runes[back] = runes[back], runes[front]
+	}
+	return string(runes)
+}
 func ll(nums []string, head *ListNode) *ListNode {
 	fnode := head
 	for _, num := range nums {
@@ -33,15 +41,14 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		s2 += strconv.Itoa(l2.Val)
 		l2 = l2.Next
 	}
-
+	s1 = reverse(s1)
+	s2 = reverse(s2)
 	n1, _ := strconv.Atoi(s1)
 	n2, _ := strconv.Atoi(s2)
 	n3 := strconv.Itoa(n1 + n2)
+	n3 = reverse(n3)
 	lst := strings.Split(n3, "")
-	for i, j := 0, len(lst)-1; i < j; i, j = i+1, j-1 {
-		lst[i], lst[j] = lst[j], lst[i]
-	}
-	return ll(lst, &ListNode{})
+	return ll((lst), &ListNode{})
 }
 func main() {
 	fmt.Println(addTwoNumbers(&ListNode{Val: 2, Next: &ListNode{Val: 4, Next: &ListNode{Val: 3}}}, &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 4}}}))
