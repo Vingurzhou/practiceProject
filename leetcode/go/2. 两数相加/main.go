@@ -2,8 +2,6 @@ package main
 
 import (
 	"fmt"
-	"strconv"
-	"strings"
 )
 
 //   Definition for singly-linked list.
@@ -12,44 +10,35 @@ type ListNode struct {
 	Next *ListNode
 }
 
-func reverse(s string) string {
-	runes := []rune(s)
-	fmt.Println(runes)
-	for front, back := 0, len(s)-1; front < back; front, back = front+1, back-1 {
-		runes[front], runes[back] = runes[back], runes[front]
+func addTwoNumbers(l1, l2 *ListNode) (head *ListNode) {
+	var tail *ListNode
+	carry := 0
+	for l1 != nil || l2 != nil {
+		n1, n2 := 0, 0
+		if l1 != nil {
+			n1 = l1.Val
+			l1 = l1.Next
+		}
+		if l2 != nil {
+			n2 = l2.Val
+			l2 = l2.Next
+		}
+		sum := n1 + n2 + carry
+		sum, carry = sum%10, sum/10
+		if head == nil {
+			head = &ListNode{Val: sum}
+			tail = head
+		} else {
+			tail.Next = &ListNode{Val: sum}
+			tail = tail.Next
+		}
 	}
-	return string(runes)
+	if carry > 0 {
+		tail.Next = &ListNode{Val: carry}
+	}
+	return
 }
-func ll(nums []string, head *ListNode) *ListNode {
-	fnode := head
-	for _, num := range nums {
-		x, _ := strconv.Atoi(num)
-		temp := ListNode{Val: x}
-		head.Next = &temp
-		head = &temp
-	}
-	return fnode.Next
-}
-func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
-	s1 := ""
-	for l1 != nil {
-		s1 += strconv.Itoa(l1.Val)
-		l1 = l1.Next
-	}
-	s2 := ""
-	for l2 != nil {
-		s2 += strconv.Itoa(l2.Val)
-		l2 = l2.Next
-	}
-	s1 = reverse(s1)
-	s2 = reverse(s2)
-	n1, _ := strconv.Atoi(s1)
-	n2, _ := strconv.Atoi(s2)
-	n3 := strconv.Itoa(n1 + n2)
-	n3 = reverse(n3)
-	lst := strings.Split(n3, "")
-	return ll((lst), &ListNode{})
-}
+
 func main() {
 	fmt.Println(addTwoNumbers(&ListNode{Val: 2, Next: &ListNode{Val: 4, Next: &ListNode{Val: 3}}}, &ListNode{Val: 5, Next: &ListNode{Val: 6, Next: &ListNode{Val: 4}}}))
 }
