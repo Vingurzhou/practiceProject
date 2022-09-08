@@ -41,8 +41,8 @@ func main() {
 	head := &ListNode{}
 	head.Show()
 	head.Insert(&ListNode{val: 1})
-	head.Insert(&ListNode{val: 2})
 	head.Insert(&ListNode{val: 3})
+	head.Insert(&ListNode{val: 2})
 	head.Show()
 	head.Delete(2)
 	head.Show()
