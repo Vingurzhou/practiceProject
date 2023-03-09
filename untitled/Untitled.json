@@ -1,0 +1,6 @@
+{
+  'success': False,
+  'content': None,
+  'message': '请求出现异常:org.springframework.validation.BeanPropertyBindingResult: 2 errors\nField error in object \'orderQueryDTO\' on field \'pageNum\': rejected value [1^]; codes [typeMismatch.orderQueryDTO.pageNum,typeMismatch.pageNum,typeMismatch.java.lang.Integer,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [orderQueryDTO.pageNum,pageNum]; arguments []; default message [pageNum]]; default message [Failed to convert property value of type \'java.lang.String\' to required type \'java.lang.Integer\' for property \'pageNum\'; nested exception is java.lang.NumberFormatException: For input string: "1^"]\nField error in object \'orderQueryDTO\' on field \'pageSize\': rejected value [10^]; codes [typeMismatch.orderQueryDTO.pageSize,typeMismatch.pageSize,typeMismatch.java.lang.Integer,typeMismatch]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [orderQueryDTO.pageSize,pageSize]; arguments []; default message [pageSize]]; default message [Failed to convert property value of type \'java.lang.String\' to required type \'java.lang.Integer\' for property \'pageSize\'; nested exception is java.lang.NumberFormatException: For input string: "10^"]',
+  'code': None
+}
