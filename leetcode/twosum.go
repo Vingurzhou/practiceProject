@@ -2,7 +2,7 @@
  * Created by zhouwenzhe on 2023/2/3
  */
 
-package solution
+package leetcode
 
 func twoSum(nums []int, target int) []int {
 	for i, x := range nums {
