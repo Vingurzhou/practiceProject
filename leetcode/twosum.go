@@ -4,13 +4,22 @@
 
 package leetcode
 
+import "fmt"
+
 func twoSum(nums []int, target int) []int {
-	for i, x := range nums {
-		for j := i + 1; j < len(nums); j++ {
-			if x+nums[j] == target {
-				return []int{i, j}
-			}
+	lk := -1
+	rk := -1
+	hashMap := make(map[int]int)
+	var result []int
+	for k, v := range nums {
+		if v2, ok := hashMap[target-v]; ok {
+			lk = v2
+			rk = k
+			result = []int{lk, rk}
 		}
+		lk = k
+		hashMap[v] = lk
 	}
-	return nil
+	fmt.Println(result)
+	return result
 }
