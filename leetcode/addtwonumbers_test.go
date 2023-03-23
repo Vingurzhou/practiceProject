@@ -28,4 +28,45 @@ func TestAddTwoNumbers(t *testing.T) {
 			},
 		},
 	})
+	addTwoNumbers(&ListNode{
+		Val:  0,
+		Next: nil,
+	}, &ListNode{
+		Val:  0,
+		Next: nil,
+	})
+	addTwoNumbers(&ListNode{
+		Val: 9,
+		Next: &ListNode{
+			Val: 9,
+			Next: &ListNode{
+				Val: 9,
+				Next: &ListNode{
+					Val: 9,
+					Next: &ListNode{
+						Val: 9,
+						Next: &ListNode{
+							Val: 9,
+							Next: &ListNode{
+								Val:  9,
+								Next: nil,
+							},
+						},
+					},
+				},
+			},
+		},
+	}, &ListNode{
+		Val: 9,
+		Next: &ListNode{
+			Val: 9,
+			Next: &ListNode{
+				Val: 9,
+				Next: &ListNode{
+					Val:  9,
+					Next: nil,
+				},
+			},
+		},
+	})
 }

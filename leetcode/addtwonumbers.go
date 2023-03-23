@@ -1,16 +1,21 @@
 /**
  * Created by zhouwenzhe on 2023/2/11
- */
+2. 两数相加
+中等
+9.4K
+相关企业
+给你两个 非空 的链表，表示两个非负的整数。它们每位数字都是按照 逆序 的方式存储的，并且每个节点只能存储 一位 数字。
+
+请你将两个数相加，并以相同形式返回一个表示和的链表。
+
+你可以假设除了数字 0 之外，这两个数都不会以 0 开头。
+*/
 
 package leetcode
 
-import (
-	"fmt"
-)
-
 func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
+	var result *ListNode
 	var tail *ListNode
-	var head *ListNode
 	var carry int
 	for l1 != nil || l2 != nil {
 		n1, n2 := 0, 0
@@ -24,10 +29,10 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 		}
 
 		val := (n1 + n2 + carry) % 10
-		fmt.Println(val)
-		if head == nil {
-			head = &ListNode{Val: val, Next: nil}
-			tail = head
+
+		if result == nil {
+			result = &ListNode{Val: val, Next: nil}
+			tail = result
 		} else {
 			tail.Next = &ListNode{Val: val, Next: nil}
 			tail = tail.Next
@@ -35,9 +40,10 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 
 		carry = (n1 + n2 + carry) / 10
 	}
+
 	if carry > 0 {
 		tail.Next = &ListNode{Val: carry}
 	}
-	fmt.Println(head)
-	return head
+
+	return result
 }

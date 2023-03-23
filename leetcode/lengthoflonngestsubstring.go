@@ -31,6 +31,5 @@ func lengthOfLongestSubstring(s string) int {
 		}
 		delete(set, fmt.Sprintf("%c ", s[lk]))
 	}
-	fmt.Println(maxLength)
 	return maxLength
 }

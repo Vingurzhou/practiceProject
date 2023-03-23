@@ -34,10 +34,5 @@ func longestPalindrome(s string) string {
 			}
 		}
 	}
-	//fmt.Println(result)
-	//for _, v := range dp {
-	//	fmt.Println(v)
-	//}
-	//fmt.Println("_____________")
 	return result
 }
