@@ -1,19 +1,6 @@
 # practiceProject
 练习项目
 ## 目录
-- [Untitled](./Untitled/README.md)
 - [c](./c/README.md)
-- [cmake-build-debug](./cmake-build-debug/README.md)
-   - [CMakeFiles](./cmake-build-debug/CMakeFiles/README.md)
-      - [3.25.2](./cmake-build-debug/CMakeFiles/3.25.2/README.md)
-         - [CompilerIdC](./cmake-build-debug/CMakeFiles/3.25.2/CompilerIdC/README.md)
-            - [tmp](./cmake-build-debug/CMakeFiles/3.25.2/CompilerIdC/tmp/README.md)
-         - [CompilerIdCXX](./cmake-build-debug/CMakeFiles/3.25.2/CompilerIdCXX/README.md)
-            - [tmp](./cmake-build-debug/CMakeFiles/3.25.2/CompilerIdCXX/tmp/README.md)
-      - [pkgRedirects](./cmake-build-debug/CMakeFiles/pkgRedirects/README.md)
-      - [practiceProject.dir](./cmake-build-debug/CMakeFiles/practiceProject.dir/README.md)
-         - [c](./cmake-build-debug/CMakeFiles/practiceProject.dir/c/README.md)
-   - [Testing](./cmake-build-debug/Testing/README.md)
-      - [Temporary](./cmake-build-debug/Testing/Temporary/README.md)
 - [go](./go/README.md)
 - [py](./py/README.md)
