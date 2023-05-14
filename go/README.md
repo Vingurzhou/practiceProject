@@ -1,4 +1,4 @@
-# leetcode
+# golang版
 
 ## 目录
 
