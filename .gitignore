@@ -1,6 +1,4 @@
 /.idea/*
 /Untitled*
-/c/twoSum/cmake-build-debug/
-/c/.idea/*
-/c/*/.idea/*
-/c/*/CMakeLists.txt
+/c/cmake-build-debug/
+/c/.idea/
