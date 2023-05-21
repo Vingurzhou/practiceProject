@@ -4,16 +4,18 @@
 
 package leetcode
 
-import (
-	"math"
-)
-
 func maxArea(height []int) int {
-	var ans int
-	for i := 0; i < len(height); i++ {
-		for j := i + 1; j < len(height); j++ {
-			ans = int(math.Max(float64(ans), math.Min(float64(height[i]), float64(height[j]))*float64(j-i)))
+	var answer int
+	leftPointer := 0
+	rightPointer := len(height) - 1
+	for leftPointer < rightPointer {
+		area := min(height[leftPointer], height[rightPointer]) * (rightPointer - leftPointer)
+		answer = max(answer, area)
+		if height[leftPointer] <= height[rightPointer] {
+			leftPointer++
+		} else {
+			rightPointer--
 		}
 	}
-	return ans
+	return answer
 }
