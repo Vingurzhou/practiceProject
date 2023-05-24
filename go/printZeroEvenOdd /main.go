@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"time"
 )
 
@@ -22,7 +21,7 @@ func NewZeroEvenOdd(n int) *ZeroEvenOdd {
 		ch3,
 	}
 }
-func (zeo ZeroEvenOdd) zero() {
+func (zeo ZeroEvenOdd) zero(printNumber func(int)) {
 	for i := 1; i <= zeo.n; i++ {
 		zeo.ch1 <- struct{}{}
 		printNumber(0)
@@ -33,7 +32,7 @@ func (zeo ZeroEvenOdd) zero() {
 		}
 	}
 }
-func (zeo ZeroEvenOdd) even() {
+func (zeo ZeroEvenOdd) even(printNumber func(int)) {
 	for i := 2; i <= zeo.n; i++ {
 		if i%2 == 0 {
 			zeo.ch2 <- struct{}{}
@@ -42,7 +41,7 @@ func (zeo ZeroEvenOdd) even() {
 		}
 	}
 }
-func (zeo ZeroEvenOdd) odd() {
+func (zeo ZeroEvenOdd) odd(printNumber func(int)) {
 	for i := 1; i <= zeo.n; i++ {
 		if i%2 == 1 {
 			zeo.ch3 <- struct{}{}
@@ -51,14 +50,13 @@ func (zeo ZeroEvenOdd) odd() {
 		}
 	}
 }
-func printNumber(i int) {
-	fmt.Println(i)
-}
+
 func main() {
-	zeo := NewZeroEvenOdd(5)
-	go zeo.zero()
-	go zeo.even()
-	go zeo.odd()
+	n := 5
+	zeo := NewZeroEvenOdd(n)
+	go zeo.zero(func(x int) { print(x) })
+	go zeo.even(func(x int) { print(x) })
+	go zeo.odd(func(x int) { print(x) })
 	<-zeo.ch1
 	time.Sleep(time.Minute)
 }

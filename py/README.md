@@ -1,4 +1,4 @@
-# python3版
+# python3
 
 ## 目录
 * [1. 两数之和](twoSum.py)

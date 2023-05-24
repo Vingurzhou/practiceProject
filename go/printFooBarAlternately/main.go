@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"time"
 )
 
@@ -19,30 +18,25 @@ func NewFooBar(n int) *FooBar {
 		ch2,
 	}
 }
-func (fb FooBar) foo() {
+func (fb FooBar) foo(printFoo func()) {
 	for i := 0; i < fb.n; i++ {
 		fb.ch1 <- struct{}{}
 		printFoo()
 		<-fb.ch2
 	}
 }
-func (fb FooBar) bar() {
+func (fb FooBar) bar(printBar func()) {
 	for i := 0; i < fb.n; i++ {
 		fb.ch2 <- struct{}{}
 		printBar()
 		<-fb.ch1
 	}
 }
-func printFoo() {
-	fmt.Println("foo")
-}
-func printBar() {
-	fmt.Println("bar")
-}
 func main() {
-	fb := NewFooBar(100)
-	go fb.foo()
-	go fb.bar()
+	n := 2
+	fb := NewFooBar(n)
+	go fb.foo(func() { print("foo") })
+	go fb.bar(func() { print("bar") })
 	<-fb.ch1
 	time.Sleep(time.Minute)
 }

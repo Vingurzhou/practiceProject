@@ -17,45 +17,37 @@ func NewFoo() *Foo {
 	}
 }
 
-func (f *Foo) first() {
-	//printFirst()
-	//<-f.firstJobDone
+func (f *Foo) first(printFirst func()) {
 	printFirst()
 	f.firstJobDone <- struct{}{}
 }
 
-func (f *Foo) second() {
-	//f.firstJobDone <- struct{}{}
-	//printSecond()
-	//<-f.secondJobDone
+func (f *Foo) second(printSecond func()) {
 	<-f.firstJobDone
 	printSecond()
 	f.secondJobDone <- struct{}{}
 }
 
-func (f *Foo) third() {
-	//f.secondJobDone <- struct{}{}
-	//printThird()
+func (f *Foo) third(printThird func()) {
 	<-f.secondJobDone
 	printThird()
 }
 
-func printFirst() {
-	print("first")
-}
-
-func printSecond() {
-	print("second")
-}
-
-func printThird() {
-	print("third")
-}
-
 func main() {
+	nums := []int{1, 3, 2}
 	f := NewFoo()
-	go f.third()
-	go f.second()
-	go f.first()
+	for _, num := range nums {
+		switch num {
+		case 1:
+			go f.first(func() { print("first") })
+		case 2:
+			go f.second(func() { print("second") })
+		case 3:
+			go f.third(func() { print("third") })
+		default:
+			panic(num)
+		}
+	}
+
 	time.Sleep(time.Minute)
 }

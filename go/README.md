@@ -1,4 +1,4 @@
-# golang版
+# golang
 
 ## 目录
 * [1. 两数之和](twosum.go)
@@ -17,7 +17,14 @@
 * [14. 最长公共前缀](longestCommonPrefix.go)
 * [15. 三数之和](threeSum.go)
 
-    . . . . . .
+  . . . . . . . . . . . .
 * [1114. 按序打印](printOrder)
 * [1115. 交替打印 FooBar](printFooBarAlternately)
 * [1116. 打印零与奇偶数](printZeroEvenOdd%20)
+* [1117. H2O 生成](buildingH2O%20)
+
+  . . . . . . . . . . . .
+* [1195. 交替打印字符串](fizzBuzzMultithreaded%20)
+
+  . . . . . . . . . . . .
+* [1226. 哲学家进餐](theDiningPhilosophers%20)
