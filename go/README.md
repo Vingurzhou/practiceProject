@@ -1,6 +1,7 @@
 # golang
 
 ## 目录
+
 * [1. 两数之和](twosum.go)
 * [2. 两数相加](addtwonumbers.go)
 * [3. 无重复字符的最长子串](lengthoflonngestsubstring.go)
@@ -16,6 +17,9 @@
 * [13. 罗马数字转整数](romanToInt.go)
 * [14. 最长公共前缀](longestCommonPrefix.go)
 * [15. 三数之和](threeSum.go)
+* [16. 最接近的三数之和](threeSumClosest.go)
+* [17. 电话号码的字母组合](letterCombinations.go)
+* [18. 四数之和](fourSum.go)
 
   . . . . . . . . . . . .
 * [1114. 按序打印](printOrder)

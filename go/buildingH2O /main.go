@@ -27,15 +27,7 @@ func (h *H2O) hydrogen(releaseHydrogen func()) {
 	ch <- struct{}{}
 
 	releaseHydrogen()
-	for {
-		if len(h.chs2) != 2 {
-			continue
-		} else {
-			<-h.chs2[0]
-			h.chs2 = h.chs2[1:]
-			break
-		}
-	}
+
 }
 
 func (h *H2O) oxygen(releaseOxygen func()) {
@@ -44,15 +36,7 @@ func (h *H2O) oxygen(releaseOxygen func()) {
 	ch <- struct{}{}
 
 	releaseOxygen()
-	for {
-		if len(h.chs1) != 3 {
-			continue
-		} else {
-			<-h.chs1[0]
-			h.chs1 = h.chs1[1:]
-			break
-		}
-	}
+
 }
 
 func main() {
@@ -68,16 +52,12 @@ func main() {
 			panic(character)
 		}
 	}
+
 	for {
-		fmt.Println((h2o.chs1))
-		if len(h2o.chs1) != 4 {
-			continue
-		} else {
-			<-h2o.chs1[0]
-			h2o.chs1 = h2o.chs1[1:]
+		if len(h2o.chs1) == 4 && len(h2o.chs2) == 2 {
+			fmt.Println(len(h2o.chs1) == 4, len(h2o.chs2) == 2)
 			break
 		}
 	}
-
 	time.Sleep(time.Minute)
 }
